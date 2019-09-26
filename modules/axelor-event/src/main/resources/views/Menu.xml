@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.1.xsd">
+
+	<menuitem name="menu-event-root" title="Event" icon-background="violet"/>
+
+	  	<menuitem name="menu-event-root-all" parent="menu-event-root" title="Event" action="action.event.view.all"/>
+	  	<action-view name="action.event.view.all" title="Event" model="com.axelor.event.db.Event">
+	    	<view type="grid" name="event-grid"/>
+	    	<view type="form" name="event-form"/>
+	    	<view type="cards" name="event-card"/>
+	    	<view type="calendar" name="event-calendar"/>
+	    	<context name="json-enhance" expr="true"/>
+	   	</action-view>
+	  
+	  	<menuitem name="menu-event-root-registration" parent="menu-event-root" title="Event Registration" action="action.event.registration.view"/>
+	  	<action-view name="action.event.registration.view" title="Event Registration" model="com.axelor.event.db.EventRegistration">
+	    	<view type="grid" name="event-registration-grid"/>
+	    	<view type="form" name="event-registration-form"/>
+	   	</action-view>
+	   	
+   	<menuitem name="menu-config-root" title="Configurations"/>
+  	
+	  	<menuitem name="menu-config-root-address" parent="menu-config-root" title="Address" action="action.config.view.address"/>
+	  	<action-view name="action.config.view.address" title="Address" model="com.axelor.event.db.Address">
+	    	<view type="grid" name="address-grid"/>
+	    	<view type="form" name="address-form"/>
+	   	</action-view>
+	   	
+<!-- 	   	<menuitem name="menu-config-root-discount" parent="menu-config-root" title="Discount" action="action.config.view.discount"/> -->
+<!-- 	  	<action-view name="action.config.view.discount" title="Discount" model="com.axelor.event.db.Discount"> -->
+<!-- 	    	<view type="grid" name="discount-grid"/> -->
+<!-- 	    	<view type="form" name="discount-form"/> -->
+<!-- 	   	</action-view> -->
+	   	  		
+</object-views>

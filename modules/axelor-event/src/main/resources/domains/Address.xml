@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models
+	xmlns="http://axelor.com/xml/ns/domain-models"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.1.xsd">
+	
+	<module package="com.axelor.event.db" name="event"/>
+	<entity name="Address">
+		<string name="importId" title="Import Id"/>		
+		<string name="line1" title="Flat/House No."/>
+		<string name="line2" title="Street" />
+		<string name="line3" title="LandMark" />
+		<string name="city" title="City" />
+		<string name="country" title="Country" />
+		<string name="fullName" title="Full Name" required="true" namecolumn="true">
+			<![CDATA[
+      			return line1 + ", " + line2 + ", " + line3 + ", " + city + ", " + country + ".";
+    		]]>
+		</string>
+	</entity>
+</domain-models>

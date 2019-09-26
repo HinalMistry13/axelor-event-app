@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.1.xsd">
+
+	<grid model="com.axelor.event.db.Discount" title="Discount"	name="discount-grid">
+		<field name="beforeDays" />
+		<field name="discountPercent" />
+		<field name="discountAmount" />
+	</grid>
+
+	<form model="com.axelor.event.db.Discount" title="Discount" name="discount-form">
+		<panel>
+			<field name="beforeDays" onChange="action-discount-condition-beforedays-check"/>
+			<field name="discountPercent" onChange="action-discount-attr-set-discount-amount"/>
+			<field name="discountAmount" />
+		</panel>
+	</form>
+	
+	<action-method name="action-discount-attr-set-discount-amount">
+		<call class="com.axelor.event.web.DiscountController" method="getDiscountAmount"/>
+	</action-method>
+	
+	<action-condition name="action-discount-condition-beforedays-check">
+		<check field="beforeDays" if="beforeDays != null &amp;&amp; __date__.plusDays(beforeDays) &gt; __parent__.regCloseDate" error="Days difference is not valid by Registration Close Date."/>
+	</action-condition>
+
+</object-views>
